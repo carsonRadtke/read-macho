@@ -62,6 +62,11 @@ static TVEC_TYPE TVEC_ID_LOWER(get)(TVEC_ID(T) vec, size_t idx)
   return vec->data[idx];
 }
 
+static TVEC_TYPE * TVEC_ID_LOWER(getptr)(TVEC_ID(T) vec, size_t idx)
+{
+  return &vec->data[idx];
+}
+
 #undef TVEC_ID
 #undef TVEC_ID_LOWER
 #undef TVEC_TYPE
