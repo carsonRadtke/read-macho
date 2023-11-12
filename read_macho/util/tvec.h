@@ -38,23 +38,28 @@ static void TVEC_ID_LOWER(open)(TVEC_ID(T) to_open, size_t cap)
 static TVEC_ID(T) TVEC_ID_LOWER(new)(size_t cap)
 {
   TVEC_ID(T) new_vec = malloc(sizeof(*new_vec));
-
   TVEC_ID_LOWER(open)(new_vec, cap);
-
   return new_vec;
 };
 
-static void TVEC_ID_LOWER(__ensure_cap)(TVEC_ID(T) vec,  size_t size)
+static void TVEC_ID_LOWER(__ensure_cap)(TVEC_ID(T) vec,  size_t cap)
 {
-  if (vec->size >= size) return;
+  if (vec->cap >= cap) return;
   /* TODO (@carsonRadtke)*/
-  __builtin_trap();
+  size_t new_cap = vec->cap * 2;
+  if (new_cap < cap) new_cap = cap;
+  vec->data = realloc(vec->data, new_cap);
 }
 
 static void TVEC_ID_LOWER(add)(TVEC_ID(T) vec, TVEC_TYPE data)
 {
   TVEC_ID_LOWER(__ensure_cap)(vec, vec->size+1);
   vec->data[vec->size++] = data;
+}
+
+static TVEC_TYPE TVEC_ID_LOWER(get)(TVEC_ID(T) vec, size_t idx)
+{
+  return vec->data[idx];
 }
 
 #undef TVEC_ID
