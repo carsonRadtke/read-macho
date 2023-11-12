@@ -1,0 +1,31 @@
+#ifndef CPU_SUBTYPE_H
+#define CPU_SUBTYPE_H
+
+#include "util/defs.h"
+
+#include <stdint.h>
+
+typedef enum
+{
+  CPU_SUBTYPE_ARM_ALL,
+  CPU_SUBTYPE_ARM_A500_ARCH,
+  CPU_SUBTYPE_ARM_A500,
+  CPU_SUBTYPE_ARM_A440,
+  CPU_SUBTYPE_ARM_M4,
+  CPU_SUBTYPE_ARM_V4T,
+  CPU_SUBTYPE_ARM_V6,
+  CPU_SUBTYPE_ARM_V5TEJ,
+  CPU_SUBTYPE_ARM_XSCALE,
+  CPU_SUBTYPE_ARM_V7,
+  CPU_SUBTYPE_ARM_V7F,
+  CPU_SUBTYPE_ARM_V7S,
+  CPU_SUBTYPE_ARM_V7K,
+  CPU_SUBTYPE_ARM_V8,
+  CPU_SUBTYPE_ARM_V6M,
+  CPU_SUBTYPE_ARM_V7M,
+  CPU_SUBTYPE_ARM_V7EM,
+  CPU_SUBTYPE_ARM_LAST,
+} cpu_subtype_arm_t;
+static_assert(sizeof(cpu_subtype_arm_t) == sizeof(int32_t));
+
+#endif /* CPU_SUBTYPE_H */

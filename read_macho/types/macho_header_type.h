@@ -3,13 +3,17 @@
 
 #include <stdint.h>
 
+#include "values/cpu_type.h"
+#include "values/cpu_subtype_arm.h"
+#include "values/file_type.h"
+
 typedef struct _MACHO_HEADER _MACHO_HEADER, *MACHO_HEADER;
 struct _MACHO_HEADER
 {
   uint32_t magic_number;
-  int32_t cpu_type;
-  int32_t cpu_subtype;
-  int32_t file_type;
+  cpu_type_t cpu_type;
+  cpu_subtype_arm_t cpu_subtype;
+  file_type_t file_type;
   int32_t number_of_load_commands;
   int32_t size_of_load_commands;
   int32_t flags;

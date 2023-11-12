@@ -20,9 +20,9 @@ void macho_header_read(MACHO_HEADER header, BR br)
 {
   BR_CHECK(br_read_u32(br, &header->magic_number));
   assert(header->magic_number == 0xfeedfacf);
-  BR_CHECK(br_read_i32(br, &header->cpu_type));
-  BR_CHECK(br_read_i32(br, &header->cpu_subtype));
-  BR_CHECK(br_read_i32(br, &header->file_type));
+  BR_CHECK(br_read_i32(br, (int32_t*)&header->cpu_type));
+  BR_CHECK(br_read_i32(br, (int32_t*)&header->cpu_subtype));
+  BR_CHECK(br_read_i32(br, (int32_t*)&header->file_type));
   BR_CHECK(br_read_i32(br, &header->number_of_load_commands));
   BR_CHECK(br_read_i32(br, &header->size_of_load_commands));
   BR_CHECK(br_read_i32(br, &header->flags));
