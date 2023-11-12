@@ -5,8 +5,6 @@
 
 #include "util/br.h"
 
-typedef struct _MACHO_HEADER _MACHO_HEADER, *MACHO_HEADER;
-
 void macho_header_dump(MACHO_HEADER header);
 
 void macho_header_read(MACHO_HEADER header, BR br);

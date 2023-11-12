@@ -7,6 +7,7 @@
 void segment_load_command_dump(SEGMENT_LOAD_COMMAND segment_load_command)
 {
   fprintf(stdout, "SEGMENT_LOAD_COMMAND: %p\n", segment_load_command);
+  fprintf(stdout, "\tsegment_name: %s\n", segment_load_command->segment_name);
   fprintf(stdout, "\taddress: %llx\n", segment_load_command->address);
   fprintf(stdout, "\taddress_size: %lld\n", segment_load_command->address_size);
   fprintf(stdout, "\tfile_offset: %llx\n", segment_load_command->file_offset);
