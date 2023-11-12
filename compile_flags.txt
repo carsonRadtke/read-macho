@@ -1,5 +1,0 @@
--std=c2x
--Werror
--Wall
--Wextra
--Iread_macho
